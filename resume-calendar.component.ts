@@ -1,16 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+
 import { Moment } from 'moment';
-import { _range } from '../utils';
-import { getMoment } from '../utils/moment';
+import { Ranges } from './resume-calendar.model';
+import { _range } from './utils';
 
-const moment = getMoment('es');
+import * as moment from 'moment';
 
-export enum Ranges {
-  MORNING = '06:00-12:00',
-  NOON = '12:00-18:00',
-  AFTERNOON = '18:00-24:00',
-  NIGHT = '00:00-06:00',
-}
 
 @Component({
   selector: 'app-resume-calendar',
@@ -45,6 +40,7 @@ export class ResumeCalendarComponent implements OnInit {
     const dates = this.userDates.filter((date) => date >= startDate && date <= endDate);
 
     return dates.length > 5 ? 5 : dates.length;
+
   }
 
 }

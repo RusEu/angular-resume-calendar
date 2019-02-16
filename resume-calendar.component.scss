@@ -1,0 +1,96 @@
+$table-container-bg-color: #F8F8F8;
+$table-container-border-color: #EEE;
+$grey: #8D8D8D;
+
+@for $o from 0 through 5 {
+  .opacity-#{$o} {
+      opacity: ($o / 10) * 2;
+  }
+}
+
+@mixin table-border-white {
+  border-collapse: collapse;
+  td,
+  th {
+    border: 1px solid #FFF;
+  }
+  th {
+    border-top: none;
+    text-align: center;
+    &:first-child,{
+      border-left: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+  tr {
+    td:first-child,
+    th:first-child {
+      border-left: 0;
+    }
+    td:last-child,
+    th:last-child {
+      border-right: 0;
+    }
+    &:first-child {
+      th {
+        border-top: 0;
+      }
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.table-container {
+  background-color: $table-container-bg-color;
+  padding: 10px;
+  padding-bottom: 0px;
+  border: 1px solid $table-container-border-color;
+  table {
+    width: 100%;
+    @include table-border-white;
+    th {
+      font-size: 14px;
+      padding: 10px 0px;
+      color: $grey;
+    }
+    thead {
+      tr {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.light-time-calendar {
+  table {
+    tbody {
+      tr {
+        th {
+          padding: 10px 0px;
+          width: 42px;
+          &:first-child {
+            width: 100%;
+          }
+        }
+        td {
+          &:first-child {
+            padding: 10px 0px;
+            font-size: 13px;
+            color: $grey;
+          }
+          &.time-cell {
+            div {
+              width: 42px;
+              height: 56px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<div class="table-container light-time-calendar">
+  <table width="100%">
+    <thead>
+      <th></th>
+      <th *ngFor="let day of weekDays">{{ day }}</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let range of ranges">
+          <td>
+            <p>{{ range.name | titlecase}}</p>
+            <p>{{ range.value }}</p>
+          </td>
+          <td *ngFor="let day of weekDays" class="time-cell">
+            <div class="bg-ma-blue" [ngClass]="'opacity-'+getBusyLevel(day, range.value)"></div>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
